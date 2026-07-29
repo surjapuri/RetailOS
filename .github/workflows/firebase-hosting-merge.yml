@@ -17,13 +17,13 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-          
+
       - name: Install Dependencies
-        working-directory: retailos/frontend/retailos_app
+        working-directory: frontend/retailos_app
         run: flutter pub get
 
       - name: Build Web App
-        working-directory: retailos/frontend/retailos_app
+        working-directory: frontend/retailos_app
         run: flutter build web --release
 
       - name: Deploy to Firebase
