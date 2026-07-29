@@ -1,0 +1,53 @@
+# Environment
+.env
+*.env.local
+node_modules/
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.idea/
+.vscode/
+android/.gradle/
+ios/Pods/
+*.log
+# Node
+node_modules/
+backend/node-api/logs/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+.pytest_cache/
+
+# Flutter
+frontend/retailos_app/.dart_tool/
+frontend/retailos_app/.flutter-plugins
+frontend/retailos_app/.flutter-plugins-dependencies
+frontend/retailos_app/build/
+frontend/retailos_app/.packages
+frontend/retailos_app/pubspec.lock
+
+# Database
+*.dump
+*.sql.bak
+
+# SSL certificates
+docker/ssl/
+*.pem
+*.key
+*.crt
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.iml
