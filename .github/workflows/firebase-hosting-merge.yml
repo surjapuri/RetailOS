@@ -1,0 +1,36 @@
+name: Deploy to Firebase Hosting on merge
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/retailos_app/**'
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          
+      - name: Install Dependencies
+        working-directory: retailos/frontend/retailos_app
+        run: flutter pub get
+
+      - name: Build Web App
+        working-directory: retailos/frontend/retailos_app
+        run: flutter build web --release
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BAZARJI }}'
+          channelId: live
+          projectId: bazarji
+
